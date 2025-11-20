@@ -176,18 +176,12 @@ export function ControlPanel({
         {/* Desktop layout - single horizontal line */}
         <div className="hidden sm:flex items-stretch justify-between gap-0 h-full min-h-[120px] md:min-h-[140px] lg:min-h-[160px]">
             {/* Balance */}
-            <InfoDisplay label="Balance" value={(balance ?? 0).toFixed(2)} backgroundImage="/frame/frame-balance.png" />
+            <InfoDisplay label="Balance" value={(balance ?? 0).toFixed(2)} />
             
             {/* Bet Amount */}
             {!isFreeSpinsMode && (
                 <div 
                     className="flex flex-col items-center justify-center p-0 rounded-md text-center h-full info-display-bg flex-[3] min-w-[120px] relative"
-                    style={{
-                        backgroundImage: 'url(/frame/frame-bet.png)',
-                        backgroundSize: 'cover',
-                        backgroundPosition: 'center',
-                        backgroundRepeat: 'no-repeat'
-                    }}
                 >
                     <span className="text-4xl uppercase tracking-widest subtle-cyan-text mb-0 relative z-10" style={{ fontFamily: 'Cinzel, serif',  marginTop: '25px' }}>Bet</span>
                     <div className="flex items-center gap-1 justify-center w-full relative z-10">
@@ -206,12 +200,6 @@ export function ControlPanel({
             {isFreeSpinsMode && (
                 <div 
                     className="flex flex-col items-center justify-center p-0 rounded-md text-center h-full flex-[3] min-w-[120px] relative"
-                    style={{
-                        backgroundImage: 'url(/frame/frame-bet.png)',
-                        backgroundSize: 'cover',
-                        backgroundPosition: 'center',
-                        backgroundRepeat: 'no-repeat'
-                    }}
                 >
                     <div className="flex flex-col items-center justify-center p-0 rounded-md text-center h-full w-full relative" style={{ background: 'transparent' }}>
                         <span className="text-4xl uppercase tracking-widest subtle-cyan-text mb-0 relative z-10" style={{ fontFamily: 'Cinzel, serif' }}>Penny Spins</span>
@@ -224,12 +212,6 @@ export function ControlPanel({
             {actionGameSpins > 0 && !isFreeSpinsMode && (
                 <div 
                     className="flex flex-col items-center justify-center p-0 rounded-md text-center h-full flex-[3] min-w-[120px] relative"
-                    style={{
-                        backgroundImage: 'url(/frame/frame-bet.png)',
-                        backgroundSize: 'cover',
-                        backgroundPosition: 'center',
-                        backgroundRepeat: 'no-repeat'
-                    }}
                 >
                     <div className="flex flex-col items-center justify-center p-0 rounded-md text-center h-full w-full relative" style={{ background: 'transparent' }}>
                         <span className="text-4xl uppercase tracking-widest subtle-cyan-text mb-0 relative z-10" style={{ fontFamily: 'Cinzel, serif' }}>Action Spins</span>
@@ -241,17 +223,11 @@ export function ControlPanel({
             )}
 
             {/* Win */}
-            <InfoDisplay label="Win" value={(lastWin ?? 0).toFixed(2)} backgroundImage="/frame/frame-win.png" />
+            <InfoDisplay label="Win" value={(lastWin ?? 0).toFixed(2)} />
         
             {/* Info and Audio Settings */}
             <div 
                 className="flex items-center justify-center gap-0 rounded-md text-center h-full info-display-bg flex-[1] min-w-[120px] relative"
-                style={{
-                    backgroundImage: 'url(/frame/frame-icon.png)',
-                    backgroundSize: '90% 90%',
-                    backgroundPosition: 'center',
-                    backgroundRepeat: 'no-repeat'
-                }}
             >
                 <InfoDialog 
                   totalBet={totalBet}

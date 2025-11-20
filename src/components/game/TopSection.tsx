@@ -404,17 +404,6 @@ export function TopSection({ betAmount, isFreeSpinsMode = false, featureSymbol, 
             marginRight: '35px'
           }}
         >
-          {/* Border image overlay */}
-          <div
-            className="absolute inset-0 pointer-events-none rounded-lg"
-            style={{
-              backgroundImage: 'url(/frame/scatter-block.png)',
-              backgroundSize: '100% 100%',
-              backgroundPosition: 'center',
-              backgroundRepeat: 'no-repeat',
-              zIndex: 0
-            }}
-          />
           {/* Content wrapper with z-index to appear above border */}
           <div className="relative z-10 flex items-center justify-between gap-8">
             {/* Scatter section on left side of the block */}
@@ -520,10 +509,10 @@ export function TopSection({ betAmount, isFreeSpinsMode = false, featureSymbol, 
           - Right block: Aligned to right edge with space in middle
         */}
         <div className="w-full" style={{ marginLeft: '25px' }}>
-          <PayCell symbolId={coinSymbol} betKey={betKey} config={config} alignRight={false} borderImage="/frame/left-block.png" />
+          <PayCell symbolId={coinSymbol} betKey={betKey} config={config} alignRight={false} />
         </div>
         <div className="w-full flex justify-end" style={{ paddingLeft: '300px', marginRight: '25px' }}>
-          <PayCell symbolId={crownSymbol} betKey={betKey} config={config} alignRight={true} borderImage="/frame/right-block.png" />
+          <PayCell symbolId={crownSymbol} betKey={betKey} config={config} alignRight={true} />
         </div>
 
         {/* 
@@ -533,10 +522,10 @@ export function TopSection({ betAmount, isFreeSpinsMode = false, featureSymbol, 
           - Matches BookOfRa structure: Wolf (left) and Leopard (right)
         */}
         <div className="w-full" style={{ marginLeft: '25px' }}>
-          <PayCell symbolId={crystalsSymbol} betKey={betKey} config={config} alignRight={false} borderImage="/frame/left-block.png" />
+          <PayCell symbolId={crystalsSymbol} betKey={betKey} config={config} alignRight={false} />
         </div>
         <div className="w-full flex justify-end" style={{ paddingLeft: '300px', marginRight: '25px' }}>
-          <PayCell symbolId={daggerSymbol} betKey={betKey} config={config} alignRight={true} borderImage="/frame/right-block.png" />
+          <PayCell symbolId={daggerSymbol} betKey={betKey} config={config} alignRight={true} />
         </div>
 
         {/* 
@@ -553,7 +542,6 @@ export function TopSection({ betAmount, isFreeSpinsMode = false, featureSymbol, 
             betKey={betKey}
             config={config}
             alignRight={false}
-            borderImage="/frame/left-block.png"
           />
         </div>
         <div className="w-full flex justify-end" style={{ paddingLeft: '300px', marginRight: '25px' }}>
@@ -562,7 +550,6 @@ export function TopSection({ betAmount, isFreeSpinsMode = false, featureSymbol, 
             betKey={betKey}
             config={config}
             alignRight={true}
-            borderImage="/frame/right-block.png"
           />
         </div>
 
@@ -573,17 +560,6 @@ export function TopSection({ betAmount, isFreeSpinsMode = false, featureSymbol, 
         */}
         <div className="col-span-2 absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 flex items-center justify-center pointer-events-none" style={{ marginTop: '100px', marginLeft: '35px' }}>
           <div className="flex flex-col items-center justify-center bg-black/40 rounded-lg p-8 w-[500px] h-[550px] relative pointer-events-auto" style={{ border: 'none' }}>
-            {/* Border image overlay */}
-            <div
-              className="absolute inset-0 pointer-events-none"
-              style={{
-                backgroundImage: 'url(/frame/middle-block.png)',
-                backgroundSize: '100% 100%',
-                backgroundPosition: 'center',
-                backgroundRepeat: 'no-repeat',
-                zIndex: 0
-              }}
-            />
             {actionGamesFinished ? (
               <p className="font-bold text-3xl relative z-10" style={{ 
                 background: 'linear-gradient(135deg, #fbbf24 0%, #f59e0b 50%, #d97706 100%)',

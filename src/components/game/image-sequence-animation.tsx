@@ -171,7 +171,7 @@ export function ImageSequenceAnimation({
         'Orb': 'Orb',
         'Ring': 'Ring',
         'Bottle': 'Bottle',
-        // Legacy mappings for backwards compatibility
+        // Legacy mappings for backwards compatibility (uppercase)
         'SCATTER': 'Scatter',
         'COIN': 'Coin',
         'CROWN': 'Crown',
@@ -185,7 +185,18 @@ export function ImageSequenceAnimation({
         'BOTTLE': 'Bottle',
         'BOOK': 'Scatter',
       };
-      return folderMap[id] || id;
+      // Try exact match first, then try case-insensitive match
+      if (folderMap[id]) {
+        return folderMap[id];
+      }
+      // Case-insensitive lookup
+      const lowerId = id.toLowerCase();
+      for (const [key, value] of Object.entries(folderMap)) {
+        if (key.toLowerCase() === lowerId) {
+          return value;
+        }
+      }
+      return id;
     };
     
     const folderName = getFolderName(symbolId);
