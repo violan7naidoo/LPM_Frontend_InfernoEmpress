@@ -37,6 +37,49 @@ export default function Home() {
   const betAmounts = useBetAmounts();
   
   /**
+   * Preload all animation images into browser cache early
+   * This prevents lag when animations start playing
+   */
+  useEffect(() => {
+    const preloadImages = async () => {
+      const imagePromises: Promise<void>[] = [];
+      
+      // Preload idle animation images (121 images)
+      for (let i = 1; i <= 121; i++) {
+        const img = document.createElement('img');
+        const promise = new Promise<void>((resolve) => {
+          img.onload = () => resolve();
+          img.onerror = () => resolve(); // Continue even if some images fail
+          img.src = `/idle/idle_${i}.webp`;
+        });
+        imagePromises.push(promise);
+      }
+      
+      // Preload Background1 images (242 images)
+      for (let i = 1; i <= 242; i++) {
+        const img = document.createElement('img');
+        const promise = new Promise<void>((resolve) => {
+          img.onload = () => resolve();
+          img.onerror = () => resolve();
+          img.src = `/animations/Background1/Background_${i}.webp`;
+        });
+        imagePromises.push(promise);
+      }
+      
+      // Load all images in parallel (browser will cache them)
+      // Don't wait for all to complete - let them load in background
+      Promise.all(imagePromises).then(() => {
+        console.log('Animation images preloaded into cache');
+      }).catch(() => {
+        // Silently handle errors
+      });
+    };
+    
+    // Start preloading immediately on mount
+    preloadImages();
+  }, []); // Run once on mount
+  
+  /**
    * betAmount state - lifted from slot-machine.tsx to enable sharing
    * 
    * Initialized to first bet amount from config (or 1.00 as fallback)
