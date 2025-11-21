@@ -149,7 +149,7 @@ export function MiddleSection({
         const currentImage = imagesRef.current[currentFrameRef.current];
         if (currentImage && currentImage.complete) {
           // Calculate scaling
-          const scaleFactor = 0.95;
+          const scaleFactor = 1;
           const imgAspect = currentImage.width / currentImage.height;
           const canvasAspect = (canvas.width / (window.devicePixelRatio || 1)) / (canvas.height / (window.devicePixelRatio || 1));
           
@@ -220,7 +220,7 @@ export function MiddleSection({
           className="absolute object-auto"
           style={{ 
             display: imagesLoaded ? 'block' : 'none',
-            top: '50px',
+            top: '130px',
             left: 0,
             right: 0,
             width: '100%',
